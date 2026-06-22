@@ -1,0 +1,212 @@
+%! TEX root = main.tex  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Early Package Options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configure hyperlink colors (black links, colored text links enabled)
+\PassOptionsToPackage{colorlinks=True, linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black, menucolor=black, runcolor=black, urlcolor=black}{hyperref}
+
+% Pass options for additional packages
+\PassOptionsToPackage{most}{tcolorbox} % Load most libraries for tcolorbox
+\PassOptionsToPackage{bottom}{footmisc} % Place footnotes at the bottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Engine switch (pdfLaTeX vs Xe/Lua)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\RequirePackage{iftex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic Formatting, Language, and Font Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{titlesec}           % Custom section title formatting
+\RequirePackage{color}              % Color support
+\RequirePackage[english]{babel}     % Document language
+\RequirePackage{anyfontsize}
+
+%\ifPDFTeX
+  % -------------------- pdfLaTeX branch --------------------
+%  \RequirePackage[utf8]{inputenc}   % UTF-8 input encoding (pdfLaTeX)
+%  \RequirePackage[T1]{fontenc}      % T1 font encoding (pdfLaTeX)
+%  \RequirePackage{lipsum}           % Placeholder text
+
+  % --- FONT: TeX Gyre Heros come default (Arial/Helvetica-like) ---
+  % RIMOSSI: newpxtext (Palatino)
+%  \RequirePackage{newpxtext}
+
+%\else
+  % -------------------- XeLaTeX / LuaLaTeX branch --------------------
+  % Unicode & OpenType
+  \RequirePackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+  % Testo principale = TeX Gyre Heros
+  %\setmainfont{TeX Gyre Heros}  % Sans-like font
+  %\setsansfont{TeX Gyre Heros}  
+  \setmainfont{TeX Gyre Pagella} % Palatino-like font
+  \setsansfont{TeX Gyre Pagella}
+%\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Image and Graphics Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{graphicx}           % Image inclusion
+\graphicspath{{Images/}}            % Default image path
+\RequirePackage{subfig}
+\RequirePackage{eso-pic}            % Background images, watermarks
+\RequirePackage{caption}            % Customize figure and table captions
+%\ifPDFTeX
+%  \RequirePackage{transparent}
+%\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathematics Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{amsmath}            % Advanced math typesetting
+\RequirePackage{amsthm}             % Theorem-like environments
+\RequirePackage{mathrsfs}           % Script fonts for math
+\RequirePackage{mathtools}
+\RequirePackage{thmtools}
+\RequirePackage{bm}                 % Bold math symbols
+
+%\ifPDFTeX
+%  \RequirePackage{mathpazo}         % Palatino
+%\else
+  % -------------------- XeLaTeX / LuaLaTeX --------------------
+  \RequirePackage{unicode-math}
+  \unimathsetup{warnings-off = {mathtools-colon}}
+  \unimathsetup{warnings-off = {mathtools-overbracket}}
+  \setmathfont{latinmodern-math.otf} % fallback
+  %\setmathfont{Fira Math}
+  %\setmathfont{TeX Gyre Pagella Math}
+%\fi
+
+\RequirePackage[overload]{empheq}   % Enhanced equation environments
+\RequirePackage{esvect}
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{siunitx}
+\sisetup{
+  per-mode = symbol,
+  range-phrase = \text{–},
+  range-units = single,
+  inter-unit-product = {}
+}
+
+% declared unit not in SI
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\ppb{ppb}
+\DeclareSIUnit\ppbv{ppbv}
+\DeclareSIUnit\ppm{ppm}
+\DeclareSIUnit\ppmv{ppmv}
+\DeclareSIUnit\ppt{ppt}
+\DeclareSIUnit\RU{RU}
+\DeclareSIUnit\voltampere{VA}
+\DeclareSIUnit\octave{octave}
+\DeclareSIUnit\bar{bar}
+\DeclareSIUnit\inch{in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tabularx}           % Flexible-width tables
+\RequirePackage{longtable}          % Multi-page tables
+\RequirePackage{colortbl}           % Colored table cells
+\RequirePackage{multirow}           % Multi-row table cells
+\RequirePackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Algorithm and Pseudocode Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{algorithm}          % Floating algorithm environment
+\RequirePackage{algorithmic}        % Pseudocode formatting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix Support
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{appendix}           % Appendix handling
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Additional Utilities and Formatting Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[dvipsnames]{xcolor}    % Theorem tools and colors
+\RequirePackage{paracol}
+\RequirePackage{comment}            % Block comments
+\RequirePackage{fancyhdr}           % Custom headers/footers
+\RequirePackage{tcolorbox}          % Colored boxes
+\RequirePackage{changepage}         % Adjust page layout
+\RequirePackage{setspace}           % Line spacing
+%\setstretch{1.5}   % o \onehalfspacing
+\RequirePackage{indentfirst}        % Indent first paragraph
+\RequirePackage{subcaption}         % Sub-captions (tenere SOLO questa)
+\RequirePackage{footnote}           % Enhanced footnotes
+\RequirePackage{footmisc}           % Footnote control
+\RequirePackage{wrapfig}            % Text wrapping around figures
+\RequirePackage{float}              % Float placement
+\RequirePackage{scrextend}          % Extra commands
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code Listings and Diagram Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{listings}           % Code listings with syntax highlighting
+\RequirePackage{tikz}               % Diagram drawing
+\RequirePackage[framemethod=TikZ]{mdframed}
+\RequirePackage{pgffor}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, decorations.pathmorphing} % TikZ libraries
+\RequirePackage{adjustbox}          % Adjustable box sizes
+\RequirePackage{watermark}          % Watermarks
+%\ifPDFTeX
+%  \RequirePackage{courier}          % Courier mono solo in pdfLaTeX
+%\fi
+\RequirePackage{pdfpages}           % To insert pdf file
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Python Code and Minted Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xparse}             % Advanced command parsing
+\RequirePackage{enumitem}           % Custom list environments
+\tcbuselibrary{minted}              % Minted integration with tcolorbox
+\RequirePackage{minted}             % Syntax-highlighted code listings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF Output and Color Profiles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{etoolbox}           % Advanced LaTeX programming tools
+\RequirePackage{colorprofiles}      % PDF color profile management
+\RequirePackage[a-2b, mathxmp]{pdfx}[\today]     % PDF/X compliance
+\RequirePackage{hyperref}           % Hyperlink and reference management
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References and Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{url}                % Improved URL formatting
+\RequirePackage{xurl}
+\RequirePackage{cleveref}           % Enhanced cross-referencing
+\RequirePackage[autostyle]{csquotes} % Context-sensitive quotation marks
+%\RequirePackage[backend=biber, style=authoryear, sorting=nyt]{biblatex} % BibLaTeX configuration
+%\ExecuteBibliographyOptions{url=false,doi=false}
+%\ExecuteBibliographyOptions{uniquename=init,giveninits=true}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Meta-data and Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\title}[1]{\gdef\@title{#1}}
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\renewcommand{\author}[1]{\gdef\@author{#1}}
+\newcommand{\PID}[1]{\gdef\@PID{#1}}
+\newcommand{\SID}[1]{\gdef\@SID{#1}}
+\newcommand{\university}[1]{\gdef\@university{#1}}
+\newcommand{\mastername}[1]{\gdef\@mastername{#1}}
+\newcommand{\academicYear}[1]{\gdef\@academicYear{#1}}
+\renewcommand{\date}[1]{\gdef\@date{#1}}
+\newcommand{\advisor}[1]{\gdef\@advisor{#1}}
+\newcommand{\coadvisor}[1]{\gdef\@coadvisor{#1}}
+\newcommand{\coadvisorsUniversity}[1]{\gdef\@coadvisorsUniversity{#1}}
+\newcommand{\course}[1]{\gdef\@course{#1}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography Adjustment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\AtBeginBibliography{\sloppy} % Allow looser line breaking in bibliography entries
+%\DefineBibliographyStrings{english}{
+%  bibliography = {\bibname}, % Rename the bibliography title to "References"
+%}

@@ -1,0 +1,61 @@
+%! TEX root = main.tex  % Specifies the main document file for multi-file projects
+
+\phantomsection  % Ensures correct hyperlinking when using hyperref
+
+\pagestyle{fancy}               % Enable fancy headers/footers
+\setfancyhf                     % Reset header/footer formatting
+
+\makeatletter  % Allows usage of "@" in command names (for internal macros)
+
+% Define custom page margins and header height
+\newgeometry{top=1.5cm, bottom=2cm, inner=2cm, outer=2cm, headheight=3.5cm, includehead, includefoot}
+
+\setlength{\headwidth}{\textwidth}  % Sets header width to match text width
+
+% Adds a watermark image at a specific position on the page
+\thiswatermark{
+    \centering
+    \put(370,-30){\includegraphics[width=0.5\linewidth]{00_Images/00_logos/raggiera_polimi.png}}
+}
+
+% Inserts a logo in the left header with a fixed height
+\lhead{
+    \includegraphics[height=1.7cm]{00_Images/00_logos/logo_politecnicoMilano.pdf}\\\hfill\\
+    \textcolor{bluePoliMI}{\normalsize{\textsc{Master Degree in Music and Acoustic Engineering}}}\\
+    \textcolor{bluePoliMI}{\normalsize{\textsc{\@course~Course}}}
+}
+
+% Title section formatting
+\null\vspace{4.5cm}  % Adds vertical space before the title
+\textcolor{bluePoliMI}{\huge\textbf{\@title}}  % Displays the document title in blue
+\normalsize
+
+\large{\textsc{\@subtitle}}  % Displays the subtitle in small caps
+\normalsize
+
+%\vspace{0.5cm}
+%\normalsize{\textsc{Studenti}\hfill\textsc{Professore}}
+%\normalsize
+
+%\vspace{0.2cm}  
+%\large{\textbf{\@author}\hfill} % Displays the author's name
+%\normalsize
+
+%\small{\textbf{Numero di Matricola: \@SID}\hfill}  % Displays student ID(s)
+%\normalsize
+
+%\vspace{0.5cm}
+%\normalsize{}
+%\normalsize
+
+%\vspace{0.2cm}  
+%\large{\textbf{\@advisor}\hfill} % Displays the author's name
+%\normalsize
+
+%\input{01_FrontMatter/02_abstract}
+
+\cfoot{\textbf{\@author}}  % Clears the footer content
+
+\restoregeometry  % Restores the original page margins
+
+\makeatother  % Ends the section where "@" can be used in command names

@@ -1,0 +1,48 @@
+% Use the custom class defined in GDTReportClass.cls
+\documentclass{GDTReportClass}
+
+% Set document metadata using custom commands from the class file
+\title{EEASE module 2 notes}  % Titolo specifico del progetto
+\subtitle{Electroacoustics Part of EEASE course held by Prof. Giuseppe Bertuccio}  % Sottotitolo coerente con la nomenclatura del corso
+\course{Electronics and Electroacoustics for Sound Engineering}
+
+\author{Giacomo De Toni}  % Authors
+\PID{10978662}
+\SID{273703}  % Student ID numbers
+\advisor{Prof. Giuseppe Bertuccio}  % Advisor's name
+
+% Embed metadata for the PDF file
+\begin{filecontents}{\jobname.xmpdata}
+    \Title{EEASE module 2 notes}
+    \Author{Giacomo De Toni}
+    \Language{en-EN}
+    \Keywords{Electroacoustics \sep Sound Engineering \sep Notes \sep PoliMI}
+\end{filecontents}
+
+\begin{document}
+
+    % Generate the front matter (title page, abstract, table of contents, etc.)
+    \input{01_FrontMatter/01_titlePage}     % Title page
+    \settingfrontmatter  % Configure front matter settings
+    \input{01_FrontMatter/03_summaries}     % Summaries
+
+    % Configure main content settings (resets page numbering, chapter counters, etc.)
+    \settingmaincontent  
+
+    % Include the main chapters from separate files
+    \input{02_MainMatter/01_chapter}
+    \input{02_MainMatter/02_chapter}
+    %\input{02_MainMatter/03_chapter}
+    \input{02_MainMatter/03_chapter_rewritten}
+    \input{02_MainMatter/04_chapter}
+    \input{02_MainMatter/05_chapter}
+    \input{02_MainMatter/06_chapter}
+    \input{02_MainMatter/07_chapter}
+    \input{02_MainMatter/08_chapter}
+    \input{02_MainMatter/09_chapter}
+    \input{02_MainMatter/10_chapter}
+    \input{02_MainMatter/11_chapter}
+    \input{02_MainMatter/12_chapter}
+    \input{02_MainMatter/13_chapter}
+    
+\end{document}
